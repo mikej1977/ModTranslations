@@ -55,8 +55,3 @@ getText = function(a, b, ...)
     end
     return og_getText(a)
 end
-
--- translation file goes in folder: yourModName/media/lua/shared/ModTranslations/LANG_THINGY/
--- this can be in 42 folder, common folder, whatev
--- Call in your mod: LoadModTranslations("JBLogging", "jb_logging_translations")
--- Use it like: getModText("JBLogging", "Chop_Tree")
