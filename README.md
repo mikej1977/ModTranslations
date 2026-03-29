@@ -1,5 +1,7 @@
 # Mod Translations
 
+## Note the you will still need "normal" translation files for item names and recipes  
+
 Translation JSON file goes in folder: yourModName/media/lua/shared/ModTranslations/LANG_THINGY/  
 -- this can be in 42 folder, common folder, whatevs  
   -- for reference, my translations file is in Logging/common/media/lua/shared/ModTranslations/EN/  
