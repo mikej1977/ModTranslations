@@ -15,6 +15,7 @@ function LoadModTranslations(modID, fileName)
 
     local fileReader = getModFileReader(modID, path, false)
     if not fileReader and lang ~= "EN" then
+        print("ModTranslations Error: No translation file found for " .. lang .. ". Defaulting to EN.")
         path = "media/lua/shared/ModTranslations/EN/" .. fileName .. ".json"
         fileReader = getModFileReader(modID, path, false)
     end
