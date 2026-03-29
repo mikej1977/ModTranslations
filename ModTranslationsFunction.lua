@@ -2,7 +2,7 @@ ModTranslations = ModTranslations or {}
 
 local function parseModJSON(jsonStr) -- rinky dink ass json thingy
     local data = {}
-    for k, v in jsonStr:gmatch('"([^"]+)"%s*:%s*"([^"]+)"') do
+    for k, v in jsonStr:gmatch('"([^"]+)"%s*:%s*"([^"]+)"') do -- spaces are dumb
         v = v:gsub("\\n", "\n") -- I know, "don't reassign shit, it's bad oh noeees"
         data[k] = v
     end
@@ -41,14 +41,22 @@ function LoadModTranslations(modID, fileName)
     end
 end
 
-function getModText(modID, key)
+local function getModText(modID, key)
     if ModTranslations[modID] and ModTranslations[modID][key] then
         return ModTranslations[modID][key]
     end
     return key
 end
 
+local og_getText = getText
+getText = function(a, b, ...)
+    if b ~= nil then
+        return getModText(a, b)
+    end
+    return og_getText(a)
+end
+
 -- translation file goes in folder: yourModName/media/lua/shared/ModTranslations/LANG_THINGY/
--- this can be in 42 folder, common folder, whatever
+-- this can be in 42 folder, common folder, whatev
 -- Call in your mod: LoadModTranslations("JBLogging", "jb_logging_translations")
 -- Use it like: getModText("JBLogging", "Chop_Tree")
