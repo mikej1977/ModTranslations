@@ -49,9 +49,9 @@ local function getModText(modID, key)
 end
 
 local og_getText = getText
-getText = function(a, b, ...)
-    if b ~= nil then
-        return getModText(a, b)
+getText = function(arg1, arg2, ...)
+    if arg2 ~= nil then
+        return getModText(arg1, arg2)
     end
-    return og_getText(a)
+    return og_getText(arg1)
 end
