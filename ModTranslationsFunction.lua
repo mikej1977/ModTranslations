@@ -42,17 +42,9 @@ function LoadModTranslations(modID, fileName)
     end
 end
 
-local function getModText(modID, key)
+function getModText(modID, key)
     if ModTranslations[modID] and ModTranslations[modID][key] then
         return ModTranslations[modID][key]
     end
     return key
-end
-
-local og_getText = getText
-getText = function(arg1, arg2, ...)
-    if arg2 ~= nil then
-        return getModText(arg1, arg2)
-    end
-    return og_getText(arg1)
 end
